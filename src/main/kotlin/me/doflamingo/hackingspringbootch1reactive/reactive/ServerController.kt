@@ -11,6 +11,6 @@ class ServerController(
 ) {
     @GetMapping(value = ["/server"], produces = [MediaType.TEXT_EVENT_STREAM_VALUE])
     fun serverDishes() : Flux<Dish> {
-        return this.kitchenService.getDishes()
+        return kitchenService.getDishes()
     }
 }

@@ -17,12 +17,15 @@ class KitchenService {
     private val picker = Random()
 
     fun getDishes() : Flux<Dish> {
-        return Flux.generate<Dish?> {it.next(randomDish())}
+
+        return Flux.generate<Dish>{sink -> sink.next(randomDish())}
             .delayElements(Duration.ofMillis(250))
     }
 
     private fun randomDish(): Dish {
-        return menu[picker.nextInt(menu.size)]
+        val menuUnit = menu[picker.nextInt(menu.size)]
+        println(menuUnit)
+        return menuUnit
     }
 
 }

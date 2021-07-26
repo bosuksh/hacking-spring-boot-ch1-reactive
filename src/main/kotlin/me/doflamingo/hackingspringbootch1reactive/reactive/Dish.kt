@@ -2,8 +2,8 @@ package me.doflamingo.hackingspringbootch1reactive.reactive
 
 data class Dish(
     var description: String,
-) {
     private var delivered: Boolean = false
+) {
 
     fun isDelivered() : Boolean {
         return delivered
